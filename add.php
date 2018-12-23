@@ -17,7 +17,11 @@ include('connection.php');
 $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
 //giving the message
 if($qry)
-{ echo "User Added";}
+{ 
+echo '<script language="javascript">';
+echo 'alert("User Added Successfully!")';
+echo '</script>';
+}
 else {echo "Somthing wrong while adding new user";}
 
 }
@@ -117,6 +121,10 @@ else {echo "Somthing wrong while adding new user";}
     <!-- /#wrapper -->
 
     <?php include('inc_footerscript.php');?>
+   
+     
+       
+
     
 </body>
 
