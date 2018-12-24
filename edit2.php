@@ -65,9 +65,10 @@ if(isset($_POST['update']))
             echo "<font color='red'>status field is empty.</font><br/>";
         } 
 
-    } else {    
+    } 
+    else {    
         //updating the table
-        $stm = mysqli_query($conn, "UPDATE login SET username='$uname',password='$upass',email='$email',role='$role',status='$status' WHERE id=$id");
+        $stm = mysqli_query($conn, "UPDATE login SET username='$uname',password='$upass',email='$email',role= $role WHERE id=$id");
         
         //redirectig to the display page. In our case, it is index.php
         header("Location: viewusers.php");
@@ -93,12 +94,7 @@ while($row = mysqli_fetch_array($stm))
 
 }
 ?>
-<html>
-<head>    
-    <title>Edit Data</title>
-</head>
- 
-<body>
+
     <a href="viewusers.php">Home</a>
     <br/><br/>
     
@@ -107,23 +103,20 @@ while($row = mysqli_fetch_array($stm))
         <table border="0" class="table">
             <tr> 
                 <td>userName</td>
-                <td><input type="text" name="username" value="<?php echo $uname;?>"></td>
+                <td><input type="text" name="username" value="<?php echo $uname;?>" required='required'></td>
             </tr>
             <tr> 
                 <td>password</td>
-                <td><input type="text" name="password" value="<?php echo $upass;?>"></td>
+                <td><input type="text" name="password" value="<?php echo $upass;?>" required='required'></td>
             </tr>
             <tr> 
                 <td>Email</td>
-                <td><input type="text" name="email" value="<?php echo $email;?>"></td>
+                <td><input type="text" name="email" value="<?php echo $email;?>" required='required'></td>
             </tr>
             <tr> 
-                <td>Role</td>
-                <td><input type="number" name="role" value="<?php echo $role;?>"></td>
-            </tr>
-            <tr> 
-                <td>Status</td>
-                <td><input type="number" name="status" value="<?php echo $status;?>"></td>
+                <div class="checkbox"><input type="radio" name="role" value="1"> Admin</div>
+                         
+                        <div class="checkbox"><input type="radio" name="role" value="2" checked> User</div>
             </tr>
             <tr>
                 <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
