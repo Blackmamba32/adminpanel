@@ -35,7 +35,9 @@ else {echo "Somthing wrong while register the user";}
 <body>
     <div class="container">
  <form class="form-horizontal" method="post" action="#">
-                        
+                                             <legend>
+                       <h1 class="text-center " > Register!</h1>     
+                        </legend>
                         
                         <div class="form-group ">
                             <label for="username" class="cols-sm-2 control-label">Username</label>
