@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     $email=$_POST['email'];
     $role=$_POST['role'];
 //making statement
-$stmt="INSERT INTO login(username, password, email, role, status) VALUES ('$username', '$password', '$email', $role, 0)";
+$stmt="INSERT INTO login(username, password, email, role, status) VALUES ('$username', '$password', '$email', $role, 1)";
 //making connection
 include('connection.php');
 //making query
@@ -18,9 +18,10 @@ $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
 //giving the message
 if($qry)
 { 
-echo '<script language="javascript">';
-echo 'alert("User Added Successfully!")';
-echo '</script>';
+echo '<div class="alert alert-success">';
+echo '<strong>User Added!</strong>';
+echo '</div>';
+  
 }
 else {echo "Somthing wrong while adding new user";}
 

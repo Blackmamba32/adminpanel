@@ -5,7 +5,7 @@ if(isset($_POST['login']))
     $user=$_POST['uname'];
     $pass=$_POST['upass'];
 //making statement
-$stm="SELECT * FROM login WHERE username='$user' AND password='$pass' ";
+$stm="SELECT * FROM login WHERE username='$user' AND password='$pass' AND status= 1";
 //Making connection
 include('connection.php');
 //making query
@@ -19,10 +19,18 @@ if($count==1)
     $_SESSION['logintime']=time();
     
     header('Location: dashboard.php');}
-else{echo "Login Failed";}
+else{
+  echo '<div class="alert alert-danger">';
+  echo '<strong>Login Failed!</strong> Try again.';
+  echo '</div>';
+
+     
+}
 
 }
 ?>
+
+ <?php include('inc_headsection.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,18 +40,33 @@ else{echo "Login Failed";}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    
 </head>
-<body>
-<form method="post" name="frmLogin" action="" enctype="multipart/form-data">
+<body  class="img-responsive">
+    <div class="container">
+    <div class="login-form ">
+        <form method="post" name="frmLogin" action="" enctype="multipart/form-data">
 <fieldset>
     <legend>
-    Login
+   <h1 class="text-center " > Sign in</h1>     
     </legend>
-    <input type="text" name='uname' placeholder="Username" /><br/>
-    <input type="password" name="upass" placeholder="Password" /><br/>
-    <input type="submit" name="login" value="Login" />
+     <div class="form-group">
+            <input type="text" name="uname" class="form-control"  placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" name="upass" class="form-control"  placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" name="login" value="login" class="btn btn-primary btn-block">Log in</button>
+        </div>
 </fieldset>
 </form>
+<div class="login-register">
+                            <a href="register.php" class="btn btn-danger">-SignUp-</a>
+                         </div>
+
+    </div>
+</div>
     
 </body>
 </html>

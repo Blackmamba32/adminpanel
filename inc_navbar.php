@@ -242,7 +242,7 @@
                             <a href=""><i class="fa fa-users"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="./add.php">Add Users</a>
+                                    <a href="add.php">Add Users</a>
                                 </li>
                                 <li>
                                     <a href="viewusers.php">View user</a>
@@ -291,3 +291,4 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+       

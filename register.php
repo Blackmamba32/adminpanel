@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
     $email=$_POST['email'];
     $role=$_POST['role'];
 //making statement
-$stmt="INSERT INTO login(username, password, email, role, status) VALUES ('$username', '$password', '$email', $role, 0)";
+$stmt="INSERT INTO login(username, password, email, role, status) VALUES ('$username', '$password', '$email', $role, 1)";
 //making connection
 include('connection.php');
 //making query
@@ -20,6 +20,7 @@ else {echo "Somthing wrong while register the user";}
 
 }
 ?>
+<?php include('inc_headsection.php');?>
 
 <!DOCTYPE html>
 <html>
@@ -32,14 +33,56 @@ else {echo "Somthing wrong while register the user";}
     <script src="main.js"></script>
 </head>
 <body>
-<form method="post" action="" name="frmRegister" enctype="multipart/form-data">
-    <input type="text" name="username" placeholder="Username"><br/>
-    <input type="password" name="password" placeholder="Password"><br/>
-    <input type="email" name="email" placeholder="Email"><br/>
-    <input type="radio" name="role" value="1"> Admin
-    <input type="radio" name="role" value="2" checked> User<br/>
-    <input type="submit" name="submit" value="Register"><br/>
-</form>
-    
+    <div class="container">
+ <form class="form-horizontal" method="post" action="#">
+                        
+                        
+                        <div class="form-group ">
+                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                </div>
+                            </div>
+                        </div>
+                           <div class="checkbox"><input type="radio" name="role" value="1"> Admin</div>
+                         
+                        <div class="checkbox"><input type="radio" name="role" value="2" checked> User</div>
+
+                        
+
+                        <div class="form-group ">
+                            <input type="submit" name="submit" value="Register" class="btn btn-primary">
+                        </div>
+                        <div class="login-register">
+                            <a href="index.php" class="btn btn-success">Login</a>
+                         </div>
+                    </form>
+
+</div>
+
+                     
 </body>
 </html
