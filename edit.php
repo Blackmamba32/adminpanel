@@ -1,5 +1,6 @@
 <?php
-
+include('inc_session.php');?>
+<?php
 // including the database connection file
 include_once("connection.php");
  
@@ -47,14 +48,34 @@ while($row = mysqli_fetch_array($stm))
     $email = $row['email'];
 }
 ?>
-<html>
-<head>    
-    <title>Edit Data</title>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <?php include('inc_headsection.php');?>
+    <link href="datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
+
 </head>
- 
+
 <body>
-    <a href="viewuse.php">Home</a>
-    <br/><br/>
+
+    <div id="wrapper">
+
+     <?php include('inc_navbar.php');?>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+
+            <div class="col-md-12">
     
     <form name="form1" method="post" action="edit.php">
         <table border="0">
@@ -76,5 +97,30 @@ while($row = mysqli_fetch_array($stm))
             </tr>
         </table>
     </form>
+ </div>
+               
+
+
+
+            
+
+
+            </div>
+            <!-- /.row -->
+      
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <?php include('inc_footerscript.php');?>
+   
+     
+       
+
+    
 </body>
+
 </html>

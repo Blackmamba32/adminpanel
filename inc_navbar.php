@@ -255,10 +255,10 @@
                             <a href="#"><i class="fa fa-users"></i> Category<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Add Category</a>
+                                    <a href="./addcategory.php">Add Category</a>
                                 </li>
                                 <li>
-                                    <a href="#">View Category</a>
+                                    <a href="./viewcategory.php">View Category</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
