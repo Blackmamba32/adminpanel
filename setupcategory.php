@@ -1,12 +1,12 @@
 <?php
 include('connection.php');
 $stmt="CREATE TABLE IF NOT EXISTS category(
-    category_id INT AUTO_INCREMENT ,
+    category_id INT AUTO_INCREMENT  ,
     category_name VARCHAR(50) NOT NULL ,
       
     category_status TINYINT(1) NOT NULL,
     UNIQUE (category_name)
-    )g";
+    )";
 $qry=mysqli_query($conn, $stmt);
 if($qry)
 {

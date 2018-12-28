@@ -64,16 +64,14 @@ include('inc_session.php');?>
                     echo "<td>".$row['category_name']."</td>";
                     echo "<td>".$row['category_status']."</td>";
                     
-                    echo "<td>Edit| Delete</td>";
+                    echo "<td><a class='btn btn-warning' href=\"category_edit.php?cid=$row[category_id]\">Edit</a>| <a class='btn btn-warning' href=\"deletecategory.php?cid=$row[category_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                     echo "</tr>";
                 }
-
             }
             else{
                 echo "Soory no data found";
             }
             
-
             ?>
             </tbody>
 

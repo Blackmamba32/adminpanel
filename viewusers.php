@@ -21,7 +21,7 @@ include('inc_session.php');?>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Users</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -30,7 +30,7 @@ include('inc_session.php');?>
 
             <div class="col-md-12">
 
-            <table class="table" id="myTable">
+            <table class="table " id="myTable">
             <thead>
                 <tr>
                     <td> ID</td>
@@ -69,13 +69,13 @@ include('inc_session.php');?>
                     echo "<td>".$row['email']."</td>";
                     echo "<td>".$row['role']."</td>";
                     echo "<td>".$row['status']."</td>";
-                    echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a>| <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                    echo "<td><a class='btn btn-warning' href=\"edit.php?id=$row[id]\">Edit</a>| <a class='btn btn-warning' href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                     echo "</tr>";
                 }
 
             }
             else{
-                echo "Soory no data found";
+                echo "Sorry no data found";
             }
             
 

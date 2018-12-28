@@ -15,3 +15,17 @@ body {
   overflow-x: hidden;
  }
  
+ 
+input[type="file"] {
+    display: none;
+}
+
+ .new{
+
+  height:30px;
+   background: rgba(0, 0, 0, 0.2);
+  font-size: 17px;
+  color:white;
+  cursor: pointer;
+  font-family: 'Staatliches', cursive;
+}
