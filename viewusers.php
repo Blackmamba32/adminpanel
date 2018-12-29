@@ -69,7 +69,7 @@ include('inc_session.php');?>
                     echo "<td>".$row['email']."</td>";
                     echo "<td>".$row['role']."</td>";
                     echo "<td>".$row['status']."</td>";
-                    echo "<td><a class='btn btn-warning' href=\"edit.php?id=$row[id]\">Edit</a>| <a class='btn btn-warning' href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                    echo "<td><a class='btn btn-warning btn-sm' href=\"edit.php?id=$row[id]\">Edit</a>| <a class='btn btn-danger btn-sm' href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                     echo "</tr>";
                 }
 

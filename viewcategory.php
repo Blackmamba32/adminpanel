@@ -36,7 +36,7 @@ include('inc_session.php');?>
                     <td>category_id</td>
                     <td>category_name</td>
                     <td>category_status</td>
-
+                  <td>Functions</td>
                     
                 </tr>
             </thead>
@@ -46,6 +46,8 @@ include('inc_session.php');?>
                    <td>category_id</td>
                     <td>category_name</td>
                     <td>category_status</td>
+                     <td>Functions</td>
+
                 </tr>
             </tfoot>
 
@@ -64,7 +66,7 @@ include('inc_session.php');?>
                     echo "<td>".$row['category_name']."</td>";
                     echo "<td>".$row['category_status']."</td>";
                     
-                    echo "<td><a class='btn btn-warning' href=\"category_edit.php?cid=$row[category_id]\">Edit</a>| <a class='btn btn-warning' href=\"deletecategory.php?cid=$row[category_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                    echo "<td><a class='btn btn-warning btn-sm' href=\"category_edit.php?cid=$row[category_id]\">Edit</a>| <a class='btn btn-danger btn-sm' href=\"deletecategory.php?cid=$row[category_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                     echo "</tr>";
                 }
             }
@@ -93,8 +95,7 @@ include('inc_session.php');?>
 
     </div>
     <!-- /#wrapper -->
-
-    <?php include('inc_footerscript.php');?>
+<?php include('inc_footerscript.php');?>
     <script src="datatable/jquery.dataTables.min.js"></script>
 
     <script>
