@@ -267,10 +267,22 @@
                             <a href="#"><i class="fa fa-users"></i>Posts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Add Posts</a>
+                                    <a href="./addpost.php">Add Posts</a>
                                 </li>
                                 <li>
-                                    <a href="#">View Posts</a>
+                                    <a href="./viewpost.php">View Posts</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-users"></i> Gallery<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="./addgallery.php">Add Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="#">View Gallery</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

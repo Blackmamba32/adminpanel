@@ -9,7 +9,7 @@
 <body>
 	<?php
 
-  $actual_link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+ 
   
 	if (isset($_POST['upload']))
 	{
@@ -26,7 +26,7 @@
            echo '<div class="alert alert-success">';
            echo '<strong>Image Uploaded!</strong>';
            echo '</div>';  
-        echo "<meta http-equiv=\"refresh\" content=\"5;url= $actual_link\"/>";
+      
        	}
        	else{
        		echo "Error while uploading ";

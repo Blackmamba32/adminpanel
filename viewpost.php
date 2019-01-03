@@ -21,7 +21,7 @@ include('inc_session.php');?>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Category</h1>
+                    <h1 class="page-header">Post</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -33,27 +33,50 @@ include('inc_session.php');?>
             <table class="table" id="my Table">
             <thead>
                 <tr>
-                    <td>category_id</td>
-                    <td>category_name</td>
-                    <td>category_status</td>
-                  <td>Functions</td>
+                    <td>Post Id</td>
+                    <td>Title</td>
+                    <td>keyword</td>
+                     <td>Description</td>
+                    <td>Heading</td>
+                     <td>Short Story</td>
+                    <td>Long Story</td>
+                     <td>Post Date</td>
+                     <td>Category Id</td>
+                     <td>User Id</td>
+                   <td>Status</td>
+                  <td>function</td>
+
                     
                 </tr>
             </thead>
 
             <tfoot>
                 <tr>
-                   <td>category_id</td>
-                    <td>category_name</td>
-                    <td>category_status</td>
-                     <td>Functions</td>
+                   <td>Post Id</td>
+                    <td>Title</td>
+                    <td>keyword</td>
+                     <td>Description</td>
+                    <td>Heading</td>
+                     <td>Short Story</td>
+                    <td>Long Story</td>
+                     <td>Post Date</td>
+                     <td>Category Id</td>
+                     <td>User Id</td>
+                   <td>Status</td>
+                  <td>function</td>
+
+
+
+
+
+
 
                 </tr>
             </tfoot>
 
             <tbody>
             <?php
-            $stm="SELECT * FROM category";
+            $stm="SELECT * FROM post";
             include('connection.php');
             $qry=mysqli_query($conn, $stm);
             $count=mysqli_num_rows($qry);
@@ -62,11 +85,19 @@ include('inc_session.php');?>
                 while($row=mysqli_fetch_array($qry))
                 {
                     echo "<tr>";
+                    echo "<td>".$row['post_id']."</td>";
+                    echo "<td>".$row['title']."</td>";
+                    echo "<td>".$row['keyword']."</td>";
+                    echo "<td>".$row['description']."</td>";
+                    echo "<td>".$row['heading']."</td>";
+                    echo "<td>".$row['shortstory']."</td>";
+                    echo "<td>".$row['longstory']."</td>";
+                    echo "<td>".$row['postdate']."</td>";
                     echo "<td>".$row['category_id']."</td>";
-                    echo "<td>".$row['category_name']."</td>";
-                    echo "<td>".$row['category_status']."</td>";
+                    echo "<td>".$row['user_id']."</td>";
+                    echo "<td>".$row['status']."</td>";
                     
-                    echo "<td><a class='btn btn-warning btn-sm' href=\"category_edit.php?cid=$row[category_id]\">Edit</a>| <a class='btn btn-danger btn-sm' href=\"deletecategory.php?cid=$row[category_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                    echo "<td>Edit| Delete</td>";
                     echo "</tr>";
                 }
             }
