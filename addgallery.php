@@ -24,8 +24,9 @@ include('inc_session.php');?>
 
   	// image file directory
   	$target = "images/".$image;
- echo "console.log($image)";
-  	$sql = "INSERT INTO gallery (image,g_title,gallery_description,gtype,post_id,user_id,g_status) VALUES ('$image', '$gallerydesc', '$gtype', $pid, $uid, 1)";
+ echo "console.log($target)";
+  	$sql = "INSERT INTO gallery (image, g_title, gallery_description, gtype, post_id, user_id, g_status) VALUES ('$target','$title','$gallerydesc', '$gtype', $pid, $uid, 1)";
+    echo $sql;
   	// execute query
   	mysqli_query($conn, $sql);
  
@@ -69,7 +70,7 @@ include('inc_session.php');?>
  <?php
     while ($row = mysqli_fetch_array($result)) {
       echo "<div id='img_div'>";
-      	echo "<img src='images/".$row['image']."' >";
+      	echo "<img src='".$row['image']."' >";
       	echo $row['g_title'];
       	echo "<p>".$row['gallery_description']."</p>";
       	echo "<div>";
