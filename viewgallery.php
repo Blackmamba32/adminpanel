@@ -28,7 +28,7 @@ $var_value = $_GET['varname'];
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header"> <?php
-                    	$varname = $_REQUEST['varname'];
+                    	$varname = $_GET['varname'];
                     	if($varname== 1){
                     	echo "Banner";
                     }
