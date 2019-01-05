@@ -60,10 +60,11 @@ else{
             <button type="submit" name="login" value="login" class="btn btn-primary btn-block">Log in</button>
         </div>
 </fieldset>
-</form>
-<div class="login-register">
+                            <div class="login-register">
                             <a href="register.php" class="btn btn-danger">-SignUp-</a>
                          </div>
+</form>
+                       
 
     </div>
 </div>

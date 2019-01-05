@@ -282,7 +282,7 @@
                                     <a href="./addgallery.php">Add Gallery</a>
                                 </li>
                                 <li>
-                                    <a href="#">View Gallery</a>
+                                    <a href="./maingallery.php">View Gallery</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

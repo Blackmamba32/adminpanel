@@ -24,9 +24,9 @@ include('inc_session.php');?>
 
   	// image file directory
   	$target = "images/".$image;
- echo "console.log($target)";
+
   	$sql = "INSERT INTO gallery (image, g_title, gallery_description, gtype, post_id, user_id, g_status) VALUES ('$target','$title','$gallerydesc', '$gtype', $pid, $uid, 1)";
-    echo $sql;
+    
   	// execute query
   	mysqli_query($conn, $sql);
  
@@ -36,7 +36,7 @@ include('inc_session.php');?>
   		$msg = "Failed to upload image";
   	}
   }
-  $result = mysqli_query($conn, "SELECT * FROM gallery");
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,30 +65,7 @@ include('inc_session.php');?>
             <!-- /.row -->
             <div class="row">
 
-            <div class="col-md-12">
-      
- <?php
-    while ($row = mysqli_fetch_array($result)) {
-      echo "<div id='img_div'>";
-      	echo "<img src='".$row['image']."' >";
-      	echo $row['g_title'];
-      	echo "<p>".$row['gallery_description']."</p>";
-      	echo "<div>";
-      	if($row['gtype']==1){
-      		echo "banner type";
-
-      	}
-		elseif ($row['gtype']==2){
-
-      	echo "slider type";
-      	}  
- 		elseif ($row['gtype']==3){
- 		echo "gallery type";
- 	}
- 	echo "</div>";
-      echo "</div>";
-    }
-  ?>
+   
   <form method="POST" action="" enctype="multipart/form-data">
   	<input type="hidden" name="size" value="1000000">
   	<div>
@@ -109,7 +86,7 @@ include('inc_session.php');?>
   	</div>
   	  <div class="form-group">
                             <label  class="cols-sm-2 control-label">
-                               user_id
+                               user id
                             </label>
                              <?php
 include('connection.php');
@@ -127,7 +104,7 @@ while($row = mysqli_fetch_array($stmu))
                         </div>
                          <div class="form-group">
                             <label  class="cols-sm-2 control-label">
-                               user_id
+                              Post id
                             </label>
                              <?php
 include('connection.php');
