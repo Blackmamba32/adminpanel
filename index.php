@@ -2,12 +2,13 @@
 session_start();
 if(isset($_POST['login']))
 {
+    //Making connection
+include('connection.php');
     $user=$_POST['uname'];
     $pass=$_POST['upass'];
 //making statement
 $stm="SELECT * FROM login WHERE username='$user' AND password='$pass' AND status= 1";
-//Making connection
-include('connection.php');
+
 //making query
 $qr=mysqli_query($conn, $stm);
 //counting the no of record affected by this query
@@ -15,7 +16,7 @@ $count=mysqli_num_rows($qr);
 if($count==1)
 { 
     $_SESSION['lgid']=md5(rand(1,9999));
-    $_SESSION['username']=$user;
+    $_SESSION['username']= $user;
     $_SESSION['logintime']=time();
     
     header('Location: dashboard.php');}

@@ -9,22 +9,22 @@ include('inc_session.php');?>
 
   // If upload button is clicked ...
   if(isset($_POST['upload'])) {
+
   	// Get image name
   	$image = $_FILES['image']['name'];
+    $ext = pathinfo($image, PATHINFO_EXTENSION);
+      // image file directory
+    $target = "images/".$image.$ext;
   	// Get text
   	$gallerydesc =$_POST['gallery_description'];
-  	  	$uid =$_POST['u_id'];
+  	  
   	  	$pid =$_POST['post_id'];
         $gtype=$_POST['gtype'];
         $title=$_POST['title'];
-
-
-
-
-
-  	// image file directory
-  	$target = "images/".$image;
-
+        $user= $_SESSION['username'];
+       $smp= mysqli_query($conn, "SELECT id FROM login where username='$user'");
+      $loginRow = mysqli_fetch_array($smp);
+      $uid= $loginRow['id'];
   	$sql = "INSERT INTO gallery (image, g_title, gallery_description, gtype, post_id, user_id, g_status) VALUES ('$target','$title','$gallerydesc', '$gtype', $pid, $uid, 1)";
     
   	// execute query
@@ -86,26 +86,14 @@ include('inc_session.php');?>
   	</div>
   	  <div class="form-group">
                             <label  class="cols-sm-2 control-label">
-                               user id
+                               user:<?php echo $_SESSION['username'];?>
                             </label>
-                             <?php
-include('connection.php');
-        $stmu= mysqli_query($conn, "SELECT * FROM login");
-   echo '<select name="u_id"><option value="" SELECTED>Select user</option>';
-while($row = mysqli_fetch_array($stmu))
-{
-    echo '<option value="'.$row['id'].'">'.$row['username'].'</option>';
-   
-}
-
-            echo '</select>';
-
-?>
+                          
                         </div>
                          <div class="form-group">
                             <label  class="cols-sm-2 control-label">
-                              Post id
-                            </label>
+                              Post id:
+                            </label> 
                              <?php
 include('connection.php');
         $stmp= mysqli_query($conn, "SELECT * FROM post");
