@@ -4,7 +4,7 @@ $stmt="CREATE TABLE IF NOT EXISTS gallery(
    gallery_id INT AUTO_INCREMENT PRIMARY KEY,
     g_title VARCHAR(50) NOT NULL ,
     gallery_description TEXT ,
-    image varchar (50),
+    image varchar (200),
     gtype int (20),
     post_id INT,
     user_id INT ,

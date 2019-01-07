@@ -270,7 +270,7 @@
                                     <a href="./addpost.php">Add Posts</a>
                                 </li>
                                 <li>
-                                    <a href="./viewpost.php">View Posts</a>
+                                    <a href="./mainpost.php">View Posts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

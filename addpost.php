@@ -4,6 +4,13 @@ include('inc_session.php');?>
 //checking the form is submitted or not
 if(isset($_POST['submit']))
 {
+    include ('connection.php');
+    //getting user-id from session['username']
+    $user= $_SESSION['username'];
+       $smp= mysqli_query($conn, "SELECT id FROM login where username='$user'");
+      $loginRow = mysqli_fetch_array($smp);
+      $uid= $loginRow['id'];
+
     //getting the data from form
    $title=$_POST['title'];
    $keyw=$_POST['keyword'];
@@ -12,15 +19,27 @@ if(isset($_POST['submit']))
    $shortS=$_POST['shortstory'];
    $longS=$_POST['longstory'];
    $cid=$_POST['c_id'];
-   $uid=$_POST['u_id'];
+  
+   // Get image name
+    $image=$_FILES['image']['name'];
+    
+      // image file directory
+    $target = "images/".$image;
     
 //making statement
-$stmt="INSERT INTO post(title,keyword, description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('$title', '$keyw', '$desc', '$headI', '$shortS', '$longS', $cid, $uid, now(), 1)";
+$stmt="INSERT INTO post(title,keyword,image,description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('$title', '$keyw', '$target','$desc', '$headI', '$shortS', '$longS', $cid, $uid, now(), 1)";
 //making connection
 include('connection.php');
-//making query
-$qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
- 
+
+
+ // execute query
+ $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        $msg = "Image uploaded successfully";
+    }else{
+        $msg = "Failed to upload image";
+    }
+  
 //giving the message
 if($qry)
 { 
@@ -32,6 +51,7 @@ echo '</div>';
 else {echo "Somthing wrong while adding new post ";}
 
 }
+
 
    
  ?>
@@ -58,7 +78,9 @@ else {echo "Somthing wrong while adding new post ";}
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Posts</h1>
+                    <h1 class="page-header">Posts
+                            
+                    </h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -66,7 +88,13 @@ else {echo "Somthing wrong while adding new post ";}
             <div class="row">
 
             <div class="col-md-12">
-             <form class="form-horizontal" name="confirmationForm" method="post" action="#">
+             <form class="form-horizontal" name="confirmationForm" method="post" action="#" enctype="multipart/form-data">
+                <div class="form-group">
+                            <label  class="cols-sm-2 control-label">
+                             <h3 class="text-muted">User:</h3> <?php echo $_SESSION['username'];?>
+                            </label>
+                           
+                            </div>
                         
                         
                         <div class="form-group">
@@ -108,43 +136,27 @@ else {echo "Somthing wrong while adding new post ";}
                                category_id
                             </label>
                              <?php
-include('connection.php');
-        $stmc= mysqli_query($conn, "SELECT * FROM category");
-   echo '<select name="c_id"><option value="" SELECTED>Select  category</option>';
-while($row = mysqli_fetch_array($stmc))
-{
-    echo '<option value="'.$row['category_id'].'">'.$row['category_name'].'</option>';
-   
-}
+                            include('connection.php');
+                                    $stmc= mysqli_query($conn, "SELECT * FROM category");
+                               echo '<select name="c_id"><option value="" SELECTED>Select  category</option>';
+                            while($row = mysqli_fetch_array($stmc))
+                            {
+                                echo '<option value="'.$row['category_id'].'">'.$row['category_name'].'</option>';
+                               
+                            }
 
-            echo '</select>';
+                                        echo '</select>';
 
-?>
+                            ?>
                         </div>
-                         <div class="form-group">
-                            <label  class="cols-sm-2 control-label">
-                               user_id
-                            </label>
-                             <?php
-include('connection.php');
-        $stmu= mysqli_query($conn, "SELECT * FROM login");
-   echo '<select name="u_id"><option value="" SELECTED>Select user</option>';
-while($row = mysqli_fetch_array($stmu))
-{
-    echo '<option value="'.$row['id'].'">'.$row['username'].'</option>';
-   
-}
-
-            echo '</select>';
-
-?>
+                        <div class="form-group">
+                            <label  class="cols-sm-2 control-label">Post Image:</label>
+                       <input type="hidden" name="size" value="1000000">
+                        <div>
+                          <input type="file" name="image">
                         </div>
                        
-                        <div class="form-group ">
-                           <?php include('image.php'); ?>
-                        </div>
-                       
-                          
+                          </div>
 
                         
 

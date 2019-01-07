@@ -11,7 +11,7 @@ $stmt="CREATE TABLE IF NOT EXISTS post (
     postdate DATETIME,
     category_id INT,
     user_id INT ,
-    image VARCHAR(50) ,
+    image VARCHAR(200) ,
     status TINYINT(1)
 )";
 $qry=mysqli_query($conn, $stmt);
@@ -25,9 +25,8 @@ else
 }
 
 //Inserting the Default Data
-$stmt="INSERT INTO post(title,keyword, description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('hello', 'world', 'Description is pure', 'head is up', 'short and sweet', 'thinking about that essaY', 0, 0, now(), 1)";
-//making connection
-include('connection.php');
+$stmt="INSERT INTO post (title,keyword,image, description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('hello', 'world','imagepath', 'Description is pure', 'head is up', 'short and sweet', 'thinking about that essaY', 0, 0, now(), 1)";
+
 //making query
 $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
 if($qry)

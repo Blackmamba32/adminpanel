@@ -12,9 +12,9 @@ include('inc_session.php');?>
 
   	// Get image name
   	$image = $_FILES['image']['name'];
-    $ext = pathinfo($image, PATHINFO_EXTENSION);
+   
       // image file directory
-    $target = "images/".$image.$ext;
+    $target = "images/".$image;
   	// Get text
   	$gallerydesc =$_POST['gallery_description'];
   	  

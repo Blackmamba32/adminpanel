@@ -1,5 +1,13 @@
-<?php
+ <?php
 include('inc_session.php');?>
+<?php
+  // Create database connection
+  include('connection.php');
+//Using GET
+$postIDie= $_GET['passp'];
+  $result = mysqli_query($conn, "SELECT * FROM post where post_id= $postIDie");
+ 
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +15,7 @@ include('inc_session.php');?>
 <head>
 
     <?php include('inc_headsection.php');?>
-    <link href="datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+   
 
 
 </head>
@@ -26,114 +34,43 @@ include('inc_session.php');?>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-
-            <div class="col-md-12">
-
-            <table class="table" id="my Table">
-            <thead>
-                <tr>
-                    <td>Post Id</td>
-                    <td>Title</td>
-                    <td>keyword</td>
-                     <td>Description</td>
-                    <td>Heading</td>
-                     <td>Short Story</td>
-                    <td>Long Story</td>
-                     <td>Post Date</td>
-                     <td>Category Id</td>
-                     <td>User Id</td>
-                   <td>Status</td>
-                  <td>function</td>
-
-                    
-                </tr>
-            </thead>
-
-            <tfoot>
-                <tr>
-                   <td>Post Id</td>
-                    <td>Title</td>
-                    <td>keyword</td>
-                     <td>Description</td>
-                    <td>Heading</td>
-                     <td>Short Story</td>
-                    <td>Long Story</td>
-                     <td>Post Date</td>
-                     <td>Category Id</td>
-                     <td>User Id</td>
-                   <td>Status</td>
-                  <td>function</td>
-
-
-
-
-
-
-
-                </tr>
-            </tfoot>
-
-            <tbody>
-            <?php
-            $stm="SELECT * FROM post";
-            include('connection.php');
-            $qry=mysqli_query($conn, $stm);
-            $count=mysqli_num_rows($qry);
-            if($count>=1)
-            {
-                while($row=mysqli_fetch_array($qry))
-                {
-                    echo "<tr>";
-                    echo "<td>".$row['post_id']."</td>";
-                    echo "<td>".$row['title']."</td>";
-                    echo "<td>".$row['keyword']."</td>";
-                    echo "<td>".$row['description']."</td>";
-                    echo "<td>".$row['heading']."</td>";
-                    echo "<td>".$row['shortstory']."</td>";
-                    echo "<td>".$row['longstory']."</td>";
-                    echo "<td>".$row['postdate']."</td>";
-                    echo "<td>".$row['category_id']."</td>";
-                    echo "<td>".$row['user_id']."</td>";
-                    echo "<td>".$row['status']."</td>";
-                    
-                    echo "<td>Edit| Delete</td>";
-                    echo "</tr>";
-                }
-            }
-            else{
-                echo "Soory no data found";
-            }
-            
-            ?>
-            </tbody>
-
-            </table>
-            </div>
-               
-
-
+<?php
+ while ($row = mysqli_fetch_array($result)) {
+    echo "<div class='row'>";
+    echo "<div class='well'>";
+    echo "<div class='media'>";
+    echo "<a class='pull-left' href='".$row['image']."'>";
+    echo "<img class='media-object' src=".$row['image'].">";
+    echo "</a>";
+    echo "<div class='media-body'>";
+    echo " <h2 class='media-heading text-bold'>".$row['heading']."</h2>";
+    echo "<hr>";
+    echo "<p class='lead'>".$row['shortstory']."</p> <br/>";
+    echo "<p class='lead'>".$row['longstory']."</p><br/>";
+    echo " </div>";
+    echo "<hr>";
+    echo "<small><p class='text-right'>-Category name: ";
+  $cname= mysqli_query($conn,"SELECT category_name FROM category where category_id = ${row['category_id']}");
+    $loginc = mysqli_fetch_array($cname);  
+    echo "".$loginc['category_name']."</p></small><br/>";  
+    echo "<small><p class='text-right '>-keywords:".$row['keyword']."</p></small><br/>";
+    echo "<ul class='list-inline list-unstyled'>";
+    echo "<li><span><i class='glyphicon glyphicon-calendar'>";
+    echo"</i>".$row['postdate']."</span></li>";
+    echo " </ul>";
+    echo " </div>";
+    echo " </div>";
+  } 
+?>
 
             
-
-
-            </div>
-            <!-- /.row -->
-      
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 <?php include('inc_footerscript.php');?>
-    <script src="datatable/jquery.dataTables.min.js"></script>
-
-    <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-    </script>
+    
 </body>
 
 </html>
