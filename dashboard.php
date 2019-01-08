@@ -154,6 +154,15 @@ include('inc_session.php');?>
                
                 <!-- /.col-lg-4 -->
             </div>
+            <div class="row">
+                <a href="setup.php" ><span class="btn-lg btn-warning">User Table</span></a>
+                <a href="setupcategory.php" ><span class="btn-lg btn-warning">Category Table</span></a>
+                <a href="setuppost.php" ><span class="btn-lg btn-warning">Post Table</span></a>
+                <a href="setupgallery.php" ><span class="btn-lg btn-warning">gallery Table</span></a>
+                <a href="#" ><span class="btn-lg btn-warning">Comment Table</span></a>
+
+
+            </div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
