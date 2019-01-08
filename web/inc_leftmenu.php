@@ -9,6 +9,7 @@
 						<li><a class="active " href='#'>Home</a></li>
 						<?php include('functions.php'); 
 						catMenu(); ?>
+						<li><a  href='#'>More..</a></li>
 						
 					</ul>
 					<!-- script-for-nav -->

@@ -48,7 +48,7 @@ bottom: 0;
     display: block;
     clear: both;
    }
-   img .pimg{
+   .pimg{
     float: left;
     margin: 5px;
     width: 500px;
