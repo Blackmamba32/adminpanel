@@ -21,7 +21,7 @@ else
 }
 
 //Inserting the Default Data
-$stmt="INSERT INTO gallery(g_title, gallery_description, image, gtype, post_id, user_id, g_status) VALUES ('g-title','its gallery','image path',1,0,0, 1)";
+$stmt="INSERT INTO gallery(g_title, gallery_description, image, gtype, post_id, user_id, g_status) VALUES ('g-title','its gallery','images/banner.png',1,0,0, 1)";
 
 //making query
 $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));

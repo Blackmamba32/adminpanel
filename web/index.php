@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,32 +13,7 @@
 			<?php include('inc_leftmenu.php'); ?>
 	<div class="col-md-9 main">
 		<!--banner-section-->
-		<div class="banner-section">
-		   <h3 class="tittle">General <i class="glyphicon glyphicon-picture"></i></h3>
-			<div class="banner">
-                 <div  class="callbacks_container">
-					<ul class="rslides" id="slider4">
-					       <li>
-							  <img src="images/1.jpg" class="img-responsive" alt="" />
-
-							</li>
-							<li>
-								 <img src="images/2.jpg" class="img-responsive" alt="" />
-
-
-							</li>
-							<li>
-							 <img src="images/3.jpg" class="img-responsive" alt="" />
-
-							
-							</li>
-							<li>
-							 <img src="images/3.jpg" class="img-responsive" alt="" />
-
-
-							</li>
-						</ul>
-					</div>
+		  <?php include('inc_banner.php'); ?>
 					<!--banner-->
 	  			<script src="js/responsiveslides.min.js"></script>
 			 <script>
@@ -50,7 +24,7 @@
 			        auto: true,
 			        pager:true,
 			        nav:true,
-			        speed: 500,
+			        speed:3000,
 			        namespace: "callbacks",
 			        before: function () {
 			          $('.events').append("<li>before event fired.</li>");
@@ -64,8 +38,7 @@
 			  </script>
 		 <div class="clearfix"> </div>
 			    <div class="b-bottom"> 
-			      <h5 class="top"><a href="single.html">What turn out consetetur sadipscing elit</a></h5>
-			      <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+			      banner bottom here
 				</div>
 			 </div>
 			   <!--//banner-->

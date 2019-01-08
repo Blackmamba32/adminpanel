@@ -17,11 +17,10 @@ body a {
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
-.img {
+ .img {
     position: relative;
-    float: left;
-    width:200px;
-    height: 200px;
+    max-width:400px;
+    height: 400px;
     
 }
 @font-face {

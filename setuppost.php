@@ -25,7 +25,7 @@ else
 }
 
 //Inserting the Default Data
-$stmt="INSERT INTO post (title,keyword,image, description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('hello', 'world','imagepath', 'Description is pure', 'head is up', 'short and sweet', 'thinking about that essaY', 0, 0, now(), 1)";
+$stmt="INSERT INTO post (title,keyword,image, description,heading,shortstory,longstory,category_id,user_id,postdate,status) VALUES ('hello', 'world','images/slider.png', 'Description is pure', 'head is up', 'short and sweet', 'big essay type text belongs here!', 0, 0, now(), 1)";
 
 //making query
 $qry=mysqli_query($conn, $stmt) or die(mysqli_error($conn));
