@@ -15,35 +15,17 @@
 		<!--banner-section-->
 		  <?php include('inc_banner.php'); ?>
 					<!--banner-->
-	  			<script src="js/responsiveslides.min.js"></script>
-			 <script>
-			    // You can also use "$(window).load(function() {"
-			    $(function () {
-			      // Slideshow 4
-			      $("#slider4").responsiveSlides({
-			        auto: true,
-			        pager:true,
-			        nav:true,
-			        speed:3000,
-			        namespace: "callbacks",
-			        before: function () {
-			          $('.events').append("<li>before event fired.</li>");
-			        },
-			        after: function () {
-			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
-			
-			    });
-			  </script>
+	  			
 		 <div class="clearfix"> </div>
 			    <div class="b-bottom"> 
-			      banner bottom here
+			    <b>banner bottom here</b>  
 				</div>
 			 </div>
+			 <hr style=" border-top: 1px dotted #8c8b8b;">
 			   <!--//banner-->
 			  <!--/top-news-->
 			  <div class="top-news">
+			  	<label style="padding:20px;"><h3>New posts</h3></label>
 				<div class="top-inner">
 					<?php include('news.php');
                      
