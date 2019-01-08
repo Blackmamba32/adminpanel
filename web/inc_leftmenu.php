@@ -6,6 +6,7 @@
 					 <span class="menu"> </span>
 
 					<ul class="cl-effect-16">
+						<li><a class="active " href='#'>Home</a></li>
 						<?php include('functions.php'); 
 						catMenu(); ?>
 						
