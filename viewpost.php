@@ -40,7 +40,7 @@ $postIDie= $_GET['passp'];
     echo "<div class='well'>";
     echo "<div class='media'>";
     echo "<a class='pull-left' href='".$row['image']."'>";
-    echo "<img class='media-object' src=".$row['image'].">";
+    echo "<img class='media-object pimg' src='".$row['image']."'>";
     echo "</a>";
     echo "<div class='media-body'>";
     echo " <h2 class='media-heading text-bold'>".$row['heading']."</h2>";
@@ -49,16 +49,15 @@ $postIDie= $_GET['passp'];
     echo "<p class='lead'>".$row['longstory']."</p><br/>";
     echo " </div>";
     echo "<hr>";
-    echo "<small><p class='text-right'>-Category name: ";
+   
   $cname= mysqli_query($conn,"SELECT category_name FROM category where category_id = ${row['category_id']}");
-    $loginc = mysqli_fetch_array($cname);  
-    echo "".$loginc['category_name']."</p></small><br/>";  
-    echo "<small><p class='text-right '>-keywords:".$row['keyword']."</p></small><br/>";
-    echo "<ul class='list-inline list-unstyled'>";
-    echo "<li><span><i class='glyphicon glyphicon-calendar'>";
-    echo"</i>".$row['postdate']."</span></li>";
-    echo " </ul>";
+    $loginc = mysqli_fetch_array($cname);
     echo " </div>";
+    echo "<small><i class='glyphicon glyphicon-calendar'>";
+    echo"</i>".$row['postdate']."</small>";
+    echo "<small><p class='text-right'>-Category name: ";  
+    echo "".$loginc['category_name']."</p></small>";  
+    echo "<small><p class='text-right '>-keywords:".$row['keyword']."</p></small>";
     echo " </div>";
   } 
 ?>

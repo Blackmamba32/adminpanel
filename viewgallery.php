@@ -51,7 +51,7 @@ $var_value = $_GET['varname'];
     while ($row = mysqli_fetch_array($result)) {
       echo "<div id='img_div'>";
       echo "<a href='".$row['image']."'>";
-      echo "<img src='".$row['image']."' >";
+      echo "<img  class='pimg' src='".$row['image']."' >";
       echo "</a>";
       	echo "<h4> Title:</h4>".$row['g_title'];
       	echo "<h4> desciption:</h4>"."<p>".$row['gallery_description']."</p>";
